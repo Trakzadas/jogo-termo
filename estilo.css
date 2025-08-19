@@ -1,0 +1,112 @@
+/* Estilos Gerais */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121213;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    margin: 0;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    border-bottom: 1px solid #3a3a3c;
+    padding-bottom: 10px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+/* Tabuleiro do Jogo */
+#game-board {
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    gap: 5px;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
+}
+
+.tile {
+    width: 60px;
+    height: 60px;
+    border: 2px solid #3a3a3c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Estilos das Letras no Tabuleiro */
+.tile.correct {
+    background-color: #538d4e; /* Verde */
+    border-color: #538d4e;
+}
+
+.tile.present {
+    background-color: #b59f3b; /* Amarelo */
+    border-color: #b59f3b;
+}
+
+.tile.absent {
+    background-color: #3a3a3c; /* Cinza escuro */
+    border-color: #3a3a3c;
+}
+
+/* Teclado Virtual */
+#keyboard {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.keyboard-row {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+}
+
+.key {
+    background-color: #818384;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    padding: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    min-width: 40px;
+}
+
+.key.large {
+    min-width: 65px;
+}
+
+.key:hover {
+    background-color: #929495;
+}
+
+/* Cores das Teclas do Teclado após uso */
+.key.correct {
+    background-color: #538d4e;
+}
+.key.present {
+    background-color: #b59f3b;
+}
+.key.absent {
+    background-color: #3a3a3c;
+}
+
