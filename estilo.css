@@ -1,30 +1,34 @@
 /* Estilos Gerais */
 body {
     font-family: Arial, sans-serif;
-    background-color: #523722; /* Fundo marrom clarinho */
+    background-color: #523722; /* Fundo marrom */
     color: #333;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    height: 100vh;
+    /* justify-content alterado para start para melhor visualização em telas menores */
+    justify-content: flex-start;
+    min-height: 100vh;
     margin: 0;
+    /* Adiciona um preenchimento para evitar que o conteúdo toque as bordas */
+    padding: 10px 0;
+    box-sizing: border-box;
 }
 
 header h1 {
     font-size: 2.5rem;
-    /* Borda inferior do título alterada para branco */
     border-bottom: 2px solid #FFFFFF;
     padding-bottom: 10px;
-    /* Adicionando uma cor escura ao texto para garantir a leitura */
     color: #FFFFFF;
+    margin: 20px 0; /* Adiciona margem para espaçamento */
 }
 
 main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px;
+    gap: 30px; /* Gap ligeiramente reduzido */
+    width: 100%;
 }
 
 /* Tabuleiro do Jogo */
@@ -43,7 +47,6 @@ main {
 .tile {
     width: 60px;
     height: 60px;
-    /* Borda padrão do bloco alterada para branco */
     border: 2px solid #FFFFFF;
     display: flex;
     justify-content: center;
@@ -51,7 +54,8 @@ main {
     font-size: 2rem;
     font-weight: bold;
     text-transform: uppercase;
-    color: #333;
+    /* A cor padrão da letra dentro do tile vazio agora é branca */
+    color: #FFFFFF;
     transition: transform 0.6s;
 }
 
@@ -82,12 +86,19 @@ main {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    /* Garante que o teclado não ultrapasse a largura da tela */
+    width: 100%;
+    max-width: 500px; /* Limita a largura máxima em telas grandes */
+    margin: 0 auto; /* Centraliza o teclado */
 }
 
 .keyboard-row {
     display: flex;
     justify-content: center;
     gap: 6px;
+    width: 100%;
+    padding: 0 5px; /* Adiciona um pequeno preenchimento lateral */
+    box-sizing: border-box;
 }
 
 .key {
@@ -96,15 +107,20 @@ main {
     font-size: 1rem;
     font-weight: bold;
     border: none;
-    padding: 20px;
+    padding: 18px 0; /* Padding vertical ajustado */
     border-radius: 4px;
     cursor: pointer;
     text-transform: uppercase;
-    min-width: 40px;
+    /* Flex-grow permite que as teclas se ajustem à largura */
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .key.large {
-    min-width: 65px;
+    /* A tecla grande ocupa mais espaço proporcionalmente */
+    flex-grow: 1.5;
 }
 
 .key:hover {
@@ -114,13 +130,57 @@ main {
 /* Cores das Teclas do Teclado após uso */
 .key.correct {
     background-color: #538d4e;
-    color: white;
 }
 .key.present {
     background-color: #b59f3b;
-    color: white;
 }
 .key.absent {
     background-color: #3a3a3c;
-    color: white;
+}
+
+/* --- MEDIA QUERIES PARA RESPONSIVIDADE --- */
+
+/* Para telas menores que 600px (celulares) */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.8rem; /* Diminui o tamanho do título */
+    }
+
+    .tile {
+        /* Usando unidades relativas à largura da tela (vw) */
+        width: 15vw;
+        height: 15vw;
+        max-width: 60px; /* Define um tamanho máximo */
+        max-height: 60px; /* Define um tamanho máximo */
+        font-size: 1.5rem;
+    }
+
+    .key {
+        font-size: 0.8rem;
+        padding: 15px 0; /* Diminui o padding das teclas */
+    }
+
+    .keyboard-row {
+        gap: 4px; /* Diminui o espaço entre as teclas */
+    }
+}
+
+/* Para telas muito pequenas (largura menor que 380px) */
+@media (max-width: 380px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .tile {
+        font-size: 1.2rem;
+    }
+
+    .key {
+        font-size: 0.7rem;
+        padding: 12px 0;
+    }
+
+    .keyboard-row {
+        gap: 3px;
+    }
 }
