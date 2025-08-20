@@ -60,7 +60,7 @@ const wordList = [
     "braco", "antro", "rosto", "sabor", "ceia", "pudor", "bolha", "mecha", "telha", "tibia",
     "caixa", "farta", "seara", "gemeo", "miope", "multa", "baile", "mídia", "macro", "abono",
     "faixa", "bando", "dente", "farda", "blusa", "cisco", "nariz", "tíbio", "troço", "morna",
-    "pedra", "cisto", "sitio", "mtuo", "corar", "domar", "nossa", "pasto", "sopro", "jejum",
+    "pedra", "cisto", "sitio", "mutuo", "corar", "domar", "nossa", "pasto", "sopro", "jejum",
     "sueca", "bruxo", "ralar", "tripa", "frota", "bomba", "apelo", "touro", "cutis", "gordo",
     "vagem", "chapa", "giria", "calda", "podio", "porco", "prole", "carne", "sotao", "trevo",
     "samba", "janta", "banca", "frade", "viela", "sabia", "régua", "aéreo", "movel", "tosar",
@@ -72,7 +72,7 @@ const wordList = [
 ];
 
     const secretWord = wordList[Math.floor(Math.random() * wordList.length)];
-    console.log(`Palavra secreta (para teste): ${secretWord}`);
+
 
     const ROWS = 6;
     const COLS = 5;

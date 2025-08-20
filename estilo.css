@@ -1,8 +1,8 @@
 /* Estilos Gerais */
 body {
     font-family: Arial, sans-serif;
-    background-color: #121213;
-    color: #fff;
+    background-color: #523722; /* Fundo marrom clarinho */
+    color: #333;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -13,8 +13,11 @@ body {
 
 header h1 {
     font-size: 2.5rem;
-    border-bottom: 1px solid #3a3a3c;
+    /* Borda inferior do título alterada para branco */
+    border-bottom: 2px solid #FFFFFF;
     padding-bottom: 10px;
+    /* Adicionando uma cor escura ao texto para garantir a leitura */
+    color: #FFFFFF;
 }
 
 main {
@@ -40,29 +43,38 @@ main {
 .tile {
     width: 60px;
     height: 60px;
-    border: 2px solid #3a3a3c;
+    /* Borda padrão do bloco alterada para branco */
+    border: 2px solid #FFFFFF;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 2rem;
     font-weight: bold;
     text-transform: uppercase;
+    color: #333;
+    transition: transform 0.6s;
 }
 
-/* Estilos das Letras no Tabuleiro */
+/* Estilos das Letras no Tabuleiro com borda branca */
 .tile.correct {
     background-color: #538d4e; /* Verde */
-    border-color: #538d4e;
+    border-color: #FFFFFF; /* Borda branca */
+    color: #fff;
+    transform: rotateX(360deg);
 }
 
 .tile.present {
     background-color: #b59f3b; /* Amarelo */
-    border-color: #b59f3b;
+    border-color: #FFFFFF; /* Borda branca */
+    color: #fff;
+    transform: rotateX(360deg);
 }
 
 .tile.absent {
-    background-color: #3a3a3c; /* Cinza escuro */
-    border-color: #3a3a3c;
+    background-color: #121213; /* Fundo preto/escuro */
+    border-color: #FFFFFF; /* Borda branca */
+    color: #fff;
+    transform: rotateX(360deg);
 }
 
 /* Teclado Virtual */
@@ -102,11 +114,13 @@ main {
 /* Cores das Teclas do Teclado após uso */
 .key.correct {
     background-color: #538d4e;
+    color: white;
 }
 .key.present {
     background-color: #b59f3b;
+    color: white;
 }
 .key.absent {
     background-color: #3a3a3c;
+    color: white;
 }
-
