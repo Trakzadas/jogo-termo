@@ -2,13 +2,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const gameBoard = document.getElementById('game-board');
     const keyboard = document.getElementById('keyboard');
 
-    // CORREÇÃO: Lista de palavras sem duplicatas para garantir uma seleção justa.
-    const wordList = [
+    let wordList = [
         "sagaz", "justo", "amigo", "audaz", "ideia", "etica", "plena", "mutua", "afeto", "sutil",
         "vigor", "dever", "sonho", "lapso", "honra", "muito", "tenue", "nobre", "exito", "sanar",
         "poder", "moral", "fazer", "graca", "corja", "assim", "desde", "fosse", "anexo", "digno",
         "genio", "causa", "comum", "ainda", "feliz", "porem", "censo", "temor", "culto", "ontem",
-        "clava", "fluxo", "sonso", "credo", "fugaz", "forte", "termo", "visar", "anseio", "puder",
+        "clava", "fluxo", "sonso", "credo", "fugaz", "forte", "termo", "visar", "puder",
         "lugar", "saude", "impor", "olhar", "jeito", "coisa", "mesmo", "flora", "leigo", "dogma",
         "louco", "criar", "valor", "ajuda", "usura", "servo", "legal", "burro", "morte", "vento",
         "falar", "bruma", "calma", "ritmo", "unico", "pobre", "nuvem", "sorte", "tente", "fugir",
@@ -68,8 +67,10 @@ document.addEventListener('DOMContentLoaded', () => {
         "parar", "acima", "negar", "docil", "civel", "medio", "sanha", "gripe", "pizza", "sacro",
         "legua", "nocao", "balde", "canoa", "haste", "forum", "abio", "farpa", "tropa", "fedor",
         "turco", "barco", "polir", "polis", "tarja", "tosse", "duzia", "audio", "dolar", "umido",
-        
     ];
+
+    // Filtra apenas palavras com até 5 letras
+    wordList = wordList.filter(word => word.length <= 5);
 
     const secretWord = wordList[Math.floor(Math.random() * wordList.length)];
 
@@ -92,9 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
         gameBoard.appendChild(row);
     }
 
-    // --- SEÇÃO MODIFICADA: Criação do Teclado ---
 
-    // Container para as fileiras de letras
     const letterKeysContainer = document.createElement('div');
     letterKeysContainer.className = 'letter-keys-container';
 
@@ -122,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
         letterKeysContainer.appendChild(row);
     });
 
-    // Cria as teclas de ação separadamente
+ 
     const backspaceButton = document.createElement('button');
     backspaceButton.className = 'key key-action';
     backspaceButton.innerHTML = '&#x2190;'; // Código para a seta para a esquerda
@@ -135,15 +134,13 @@ document.addEventListener('DOMContentLoaded', () => {
     enterButton.dataset.key = 'Enter';
     enterButton.addEventListener('click', () => handleKeyPress('Enter'));
 
-    // Adiciona os botões de ação na ordem desejada (apagar em cima, enter embaixo)
     actionKeysContainer.appendChild(backspaceButton);
     actionKeysContainer.appendChild(enterButton);
 
-    // Adiciona os containers de letras e de ações ao teclado principal
     keyboard.appendChild(letterKeysContainer);
     keyboard.appendChild(actionKeysContainer);
 
-    // --- FIM DA SEÇÃO MODIFICADA ---
+
 
     document.addEventListener('keydown', (e) => handleKeyPress(e.key));
 
